@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Estoque</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Login</h1>
+  <div id="formulario">
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+    <button onclick="login()">Entrar</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function login() {
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+
+      axios.post('http://localhost:3000/login', { usuario, senha })
+        .then(() => {
+          sessionStorage.setItem('logado', 'true');
+          window.location.href = 'index.html';
+        })
+        .catch(() => {
+          alert('Usuário ou senha inválidos!');
+        });
+    }
+  </script>
+</body>
+</html>
