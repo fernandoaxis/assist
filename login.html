@@ -19,7 +19,7 @@
       const usuario = document.getElementById('usuario').value;
       const senha = document.getElementById('senha').value;
 
-      axios.post('https://railway.com/project/2426c6e8-0329-42fd-9bc1-4691a798bd7b', { usuario, senha })
+      axios.post('http://localhost:3000/login', { usuario, senha })
         .then(() => {
           sessionStorage.setItem('logado', 'true');
           window.location.href = 'index.html';
